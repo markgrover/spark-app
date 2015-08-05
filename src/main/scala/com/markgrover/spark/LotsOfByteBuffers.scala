@@ -1,3 +1,4 @@
+package com.markgrover.spark
 import java.nio.ByteBuffer
 
 import org.apache.spark.SparkContext
