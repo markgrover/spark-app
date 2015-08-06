@@ -1,4 +1,5 @@
 package com.markgrover.spark
+
 import java.nio.ByteBuffer
 
 import org.apache.spark.SparkContext
@@ -13,6 +14,9 @@ object LotsOfByteBuffers {
     val split = sc.textFile(args(0)).flatMap(_.split(" "))
     val capacity = if (args.length > 1) args(1).toInt else 100
 
-    split.map(element => System.out.println(s"Allocating 1 buffer of $capacity capacity"); ByteBuffer.allocateDirect(capacity))
+    split.map(element => {
+      System.out.println(s"Allocating 1 buffer of $capacity capacity"); ByteBuffer.allocateDirect(
+        capacity)
+    })
   }
 }
